@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSDL Quiz Review</title>
+    <title>CSDL - Trắc Nghiệm</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -18,10 +18,14 @@
             --accent: #38bdf8;
             --accent-hover: #0ea5e9;
             --correct: #22c55e;
+            --correct-bg: rgba(34, 197, 94, 0.15);
+            --incorrect: #ef4444;
+            --incorrect-bg: rgba(239, 68, 68, 0.15);
             --btn-bg: #334155;
             --btn-hover: #475569;
-            --vocab-highlight: #facc15;
             --active-item: rgba(56, 189, 248, 0.2);
+            --option-hover: rgba(255, 255, 255, 0.08);
+            --option-selected: rgba(56, 189, 248, 0.2);
         }
 
         /* Custom Scrollbar */
@@ -45,9 +49,11 @@
         }
 
         * {
+            box-sizing: border-box;
             scrollbar-width: thin;
             scrollbar-color: rgba(56, 189, 248, 0.3) rgba(255, 255, 255, 0.05);
         }
+
 
         body {
             font-family: 'Outfit', sans-serif;
@@ -58,6 +64,7 @@
             color: var(--text-primary);
             margin: 0;
             min-height: 100vh;
+            padding-bottom: 100px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -65,11 +72,24 @@
 
         header {
             text-align: center;
-            margin: 1.5rem 0;
+            margin: 0.8rem 0;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             margin: 0;
             background: linear-gradient(to right, #38bdf8, #818cf8);
             -webkit-background-clip: text;
@@ -79,20 +99,148 @@
 
         .subtitle {
             color: var(--text-secondary);
+            margin-top: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        /* Nav buttons */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 0.5rem;
             margin-top: 0.5rem;
         }
 
-        /* Layout Grid: [Category] [Quiz] [Vocab] */
+        .nav-tab {
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: var(--btn-bg);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            position: relative;
+        }
+
+        .nav-tab:hover {
+            background: var(--btn-hover);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: glow 2s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-tab.active:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+            }
+
+            to {
+                box-shadow: 0 0 25px rgba(102, 126, 234, 0.6), 0 0 40px rgba(118, 75, 162, 0.3);
+            }
+        }
+
+        /* Layout Grid */
         .app-container {
-            display: grid;
-            grid-template-columns: 280px 1fr 320px;
-            gap: 30px;
-            width: 95%;
-            max-width: 1500px;
-            padding: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 20px 340px;
             padding-bottom: 80px;
-            min-height: calc(100vh - 180px);
-            align-items: start;
+            min-height: calc(100vh - 250px);
+        }
+
+        /* Vocab Panel Styles */
+        .vocab-highlight {
+            color: #a78bfa;
+        }
+
+        .vocab-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .vocab-item {
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #a78bfa;
+            transition: all 0.2s;
+        }
+
+        .vocab-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(4px);
+        }
+
+        .vocab-en {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .vocab-vn {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .right-panel {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 280px;
+            max-height: 80vh;
+            animation: slideFromRight 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+        }
+
+        .left-panel {
+            position: fixed;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 280px;
+            max-height: 80vh;
+            animation: slideFromLeft 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+        }
+
+        @keyframes slideFromLeft {
+            from {
+                opacity: 0;
+                transform: translateY(-50%) translateX(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
+        }
+
+        @keyframes slideFromRight {
+            from {
+                opacity: 0;
+                transform: translateY(-50%) translateX(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
         }
 
         /* Common Panel Style */
@@ -105,7 +253,7 @@
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            max-height: calc(100vh - 200px);
+            max-height: calc(100vh - 260px);
         }
 
         .panel-title {
@@ -115,10 +263,6 @@
             color: var(--accent);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
-            position: sticky;
-            top: 0;
-            background: inherit;
-            /* Keeps header visible on scroll if setup right, or just nice text */
         }
 
         /* Category Panel */
@@ -158,11 +302,27 @@
             opacity: 0.7;
         }
 
-        /* Quiz Center */
+        /* Quiz Section */
         .quiz-section {
             display: flex;
             flex-direction: column;
             gap: 24px;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .card {
@@ -170,13 +330,10 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
-            padding: 48px;
+            padding: 40px;
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-            min-height: 300px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            position: relative;
         }
 
         .question-meta {
@@ -204,65 +361,237 @@
         }
 
         .question-text {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             line-height: 1.6;
-            margin-bottom: 2rem;
-            flex-grow: 1;
+            margin-bottom: 1.5rem;
         }
 
-        .answer-container {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            margin-top: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-        }
-
-        .answer-container.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .answer-label {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .answer-text {
-            color: var(--correct);
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        /* Vocab Panel */
-        .vocab-item {
+        /* Options */
+        .options-container {
             display: flex;
             flex-direction: column;
-            margin-bottom: 12px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            gap: 12px;
+            margin-bottom: 1.5rem;
         }
 
-        .vocab-en {
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px 20px;
+            border-radius: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .option:hover:not(.disabled) {
+            background: var(--option-hover);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateX(8px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--accent);
+        }
+
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct);
+            animation: correctBounce 0.5s ease;
+        }
+
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect);
+            animation: incorrectShake 0.5s ease;
+        }
+
+        .option.disabled {
+            cursor: default;
+        }
+
+        .option-letter {
+            font-weight: 700;
+            font-size: 1rem;
+            min-width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            margin-right: 14px;
+            flex-shrink: 0;
+            transition: all 0.25s;
+        }
+
+        .option.selected .option-letter {
+            background: var(--accent);
+            color: #0f172a;
+        }
+
+        .option.correct .option-letter {
+            background: var(--correct);
+            color: #fff;
+        }
+
+        .option.incorrect .option-letter {
+            background: var(--incorrect);
+            color: #fff;
+        }
+
+        .option-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            padding-top: 4px;
+            flex: 1;
+        }
+
+        .option-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+        }
+
+        /* Result Message */
+        .result-message {
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: none;
+            align-items: center;
+            gap: 12px;
             font-weight: 600;
-            color: var(--accent);
+            animation: fadeIn 0.3s ease;
         }
 
-        .vocab-vn {
+        .result-message.correct {
+            display: flex;
+            background: var(--correct-bg);
+            border: 1px solid var(--correct);
+            color: var(--correct);
+        }
+
+        .result-message.incorrect {
+            display: flex;
+            background: var(--incorrect-bg);
+            border: 1px solid var(--incorrect);
+            color: var(--incorrect);
+        }
+
+        .result-icon {
+            font-size: 1.5rem;
+        }
+
+        .source-info {
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes correctBounce {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.02);
+            }
+
+            50% {
+                transform: scale(0.98);
+            }
+
+            75% {
+                transform: scale(1.01);
+            }
+        }
+
+        @keyframes incorrectShake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-8px);
+            }
+
+            40% {
+                transform: translateX(8px);
+            }
+
+            60% {
+                transform: translateX(-6px);
+            }
+
+            80% {
+                transform: translateX(6px);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes resultPop {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .quiz-card.animating {
+            animation: slideIn 0.3s ease;
+        }
+
+        .result-message.correct,
+        .result-message.incorrect {
+            animation: resultPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         /* Controls */
         .controls {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
             justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.4s ease-out 0.4s both;
         }
 
         button {
@@ -298,6 +627,40 @@
             background: var(--btn-hover);
         }
 
+        .btn-success {
+            background: var(--correct);
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+        }
+
+        .btn-warning {
+            background: #f59e0b;
+            color: #0f172a;
+        }
+
+        .btn-warning:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+
+        /* Next button as primary action */
+        .btn-next {
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            color: #0f172a;
+            font-weight: 700;
+            padding: 12px 32px;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-next:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+        }
+
         .shortcuts-hint {
             text-align: center;
             margin-top: 1rem;
@@ -306,7 +669,80 @@
             opacity: 0.7;
         }
 
-        /* Progress & Jump */
+        /* Score Panel */
+        .score-panel {
+            display: flex;
+            gap: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 16px 24px;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.4s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            transition: transform 0.2s ease;
+        }
+
+        .score-value.pop {
+            animation: scorePop 0.3s ease;
+        }
+
+        @keyframes scorePop {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .score-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .score-correct {
+            color: var(--correct);
+        }
+
+        .score-incorrect {
+            color: var(--incorrect);
+        }
+
+        .score-total {
+            color: var(--accent);
+        }
+
+        /* Progress Bar */
         .progress-bar {
             position: fixed;
             top: 0;
@@ -318,80 +754,25 @@
             z-index: 100;
         }
 
-        .jump-to {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--card-bg);
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            z-index: 50;
-        }
-
-        .jump-input {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            width: 50px;
-            text-align: center;
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
             .app-container {
-                grid-template-columns: 220px 1fr 280px;
-                gap: 20px;
-            }
-
-            .card {
-                padding: 32px;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .app-container {
-                grid-template-columns: 200px 1fr;
-                gap: 16px;
+                grid-template-columns: 250px 1fr;
             }
 
             .right-panel {
                 display: none;
             }
-
-            .card {
-                padding: 28px;
-                min-height: 250px;
-            }
-
-            .question-text {
-                font-size: 1.3rem;
-            }
         }
 
-        @media (max-width: 768px) {
-            header {
-                margin: 1rem 0;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
+        @media (max-width: 900px) {
             .app-container {
                 grid-template-columns: 1fr;
-                padding: 10px;
-                gap: 15px;
+                gap: 16px;
             }
 
             .panel {
-                max-height: 250px;
+                max-height: 200px;
             }
 
             .quiz-section {
@@ -401,104 +782,43 @@
             .categories-panel {
                 order: 2;
             }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
 
             .card {
                 padding: 24px;
-                min-height: 200px;
-                border-radius: 16px;
             }
 
             .question-text {
                 font-size: 1.15rem;
-                line-height: 1.5;
             }
 
-            .answer-text {
-                font-size: 1.1rem;
+            .option {
+                padding: 12px 14px;
             }
 
-            .controls {
+            .option-letter {
+                min-width: 28px;
+                height: 28px;
+                font-size: 0.9rem;
+            }
+
+            .option-text {
+                font-size: 0.9rem;
+            }
+
+            .nav-tabs {
                 flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            button {
-                padding: 10px 16px;
-                font-size: 0.9rem;
-                flex: 1;
                 justify-content: center;
-                min-width: 100px;
             }
 
-            .shortcuts-hint {
-                display: none;
-            }
-
-            .jump-to {
-                bottom: 10px;
-                right: 10px;
-                padding: 8px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            .subtitle {
-                font-size: 0.85rem;
-            }
-
-            .app-container {
-                padding: 8px;
-                gap: 12px;
-            }
-
-            .panel {
-                padding: 16px;
-                border-radius: 14px;
-                max-height: 200px;
-            }
-
-            .panel-title {
-                font-size: 1rem;
-                margin-bottom: 10px;
-                padding-bottom: 8px;
-            }
-
-            .cate-item {
-                padding: 10px;
+            .nav-tab {
+                padding: 8px 16px;
                 font-size: 0.9rem;
-            }
-
-            .card {
-                padding: 20px;
-                min-height: 180px;
-                border-radius: 14px;
-            }
-
-            .question-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .question-text {
-                font-size: 1.05rem;
-            }
-
-            .answer-text {
-                font-size: 1rem;
-            }
-
-            .controls {
-                margin-top: 1rem;
-            }
-
-            button {
-                padding: 10px 12px;
-                font-size: 0.85rem;
             }
         }
     </style>
@@ -507,149 +827,19 @@
 <body>
     <div class="progress-bar" id="progressBar"></div>
 
-    <style>
-        .nav-tabs {
-            display: flex;
-            gap: 12px;
-            margin-top: 1rem;
-            justify-content: center;
-        }
-
-        .nav-tab {
-            padding: 10px 24px;
-            border-radius: 30px;
-            background: var(--btn-bg);
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
-            border: 1px solid transparent;
-            position: relative;
-        }
-
-        .nav-tab:hover {
-            background: var(--btn-hover);
-            transform: translateY(-2px);
-        }
-
-        .nav-tab.active {
-            background: var(--accent);
-            color: #0f172a;
-        }
-
-        /* NEW Badge Styles */
-        .nav-tab.new-feature {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: glow 2s ease-in-out infinite alternate;
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .nav-tab.new-feature:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
-        }
-
-        .new-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            font-size: 0.6rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            animation: pulse 1.5s ease-in-out infinite;
-            box-shadow: 0 2px 10px rgba(245, 87, 108, 0.5);
-        }
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
-            }
-
-            to {
-                box-shadow: 0 0 25px rgba(102, 126, 234, 0.6), 0 0 40px rgba(118, 75, 162, 0.3);
-            }
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        .sparkle:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .sparkle:nth-child(2) {
-            top: 60%;
-            right: 15%;
-            animation-delay: 0.5s;
-        }
-
-        .sparkle:nth-child(3) {
-            bottom: 20%;
-            left: 30%;
-            animation-delay: 1s;
-        }
-
-        @keyframes sparkle {
-
-            0%,
-            100% {
-                opacity: 0;
-                transform: scale(0);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-    </style>
-
     <header>
         <h1>CSDL Mastery</h1>
-        <div class="subtitle">Ôn tập trắc nghiệm & Kiến thức cơ sở dữ liệu</div>
+        <div class="subtitle">Trắc Nghiệm - Chọn đáp án đúng</div>
         <div class="nav-tabs">
-            <a href="index.html" class="nav-tab active">📚 Q&A Review</a>
-            <a href="mcq.html" class="nav-tab new-feature">
-                <span class="sparkle"></span>
-                <span class="sparkle"></span>
-                <span class="sparkle"></span>
-                ✏️ Trắc Nghiệm
-                <span class="new-badge">New!</span>
-            </a>
+            <a href="qa.html" class="nav-tab">📚 Q&A Review</a>
+            <a href="index.html" class="nav-tab active">✏️ Trắc Nghiệm</a>
         </div>
     </header>
 
     <div class="app-container">
         <!-- Categories Panel -->
-        <aside class="panel categories-panel">
-            <div class="panel-title">Topics</div>
+        <aside class="panel categories-panel left-panel">
+            <div class="panel-title">📖 Chủ đề</div>
             <ul class="cate-list" id="cateList">
                 <!-- Categories injected here -->
             </ul>
@@ -657,61 +847,77 @@
 
         <!-- Main Quiz Column -->
         <section class="quiz-section">
-            <main class="card">
+            <!-- Score Panel -->
+            <div class="score-panel">
+                <div class="score-item">
+                    <div class="score-value score-correct" id="scoreCorrect">0</div>
+                    <div class="score-label">Đúng</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value score-incorrect" id="scoreIncorrect">0</div>
+                    <div class="score-label">Sai</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value score-total" id="scoreTotal">0</div>
+                    <div class="score-label">Tổng</div>
+                </div>
+            </div>
+
+            <main class="card quiz-card">
                 <div class="question-meta">
-                    <span class="question-cat-label" id="qCategory">General</span>
-                    <span class="question-number">Question <span id="qIndex">1</span> / <span
-                            id="qTotal">--</span></span>
+                    <span class="question-cat-label" id="qCategory">Chapter 1</span>
+                    <span class="question-number">Câu <span id="qIndex">1</span> / <span id="qTotal">--</span></span>
                 </div>
 
                 <div class="question-text" id="questionText">Loading...</div>
 
-                <div class="answer-container" id="answerContainer">
-                    <div class="answer-label">Đáp án:</div>
-                    <div class="answer-text" id="answerText">...</div>
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options injected here -->
+                </div>
+
+                <div class="result-message" id="resultMessage">
+                    <span class="result-icon" id="resultIcon"></span>
+                    <div>
+                        <span id="resultText"></span>
+                        <div class="source-info" id="sourceInfo"></div>
+                    </div>
                 </div>
             </main>
 
             <div class="controls">
-                <button class="btn-secondary" onclick="prevQuestion()">← Previous</button>
-                <button class="btn-primary" onclick="toggleAnswer()" id="toggleBtn">Show Answer</button>
-                <button class="btn-secondary" onclick="nextQuestion()">Next →</button>
+                <button class="btn-secondary" onclick="prevQuestion()">← Trước</button>
+                <button class="btn-next" onclick="nextQuestion()">Tiếp →</button>
+                <button class="btn-success" onclick="resetQuiz()">🔄 Làm lại</button>
+                <button class="btn-warning" onclick="clearHistory()" title="Xóa lịch sử làm bài">🗑️ Xóa lịch
+                    sử</button>
             </div>
             <div class="shortcuts-hint">
-                Phím tắt: <strong>Space/Enter</strong> (Xem đáp án) • <strong>← / →</strong> (Chuyển câu)
+                Phím tắt: <strong>1-4</strong> hoặc <strong>A-D</strong> (Chọn đáp án) • <strong>← / →</strong> (Chuyển
+                câu)
             </div>
         </section>
 
-        <!-- Vocab Panel -->
+        <!-- Vocabulary Panel -->
         <aside class="panel right-panel">
-            <div class="panel-title" style="color: var(--vocab-highlight);">Vocabulary</div>
+            <div class="panel-title vocab-highlight">📚 Vocabulary</div>
             <ul class="vocab-list" id="vocabList">
                 <li class="vocab-item"><span class="vocab-vn">Chọn một câu hỏi để xem từ vựng...</span></li>
             </ul>
         </aside>
     </div>
 
-    <div class="jump-to">
-        <span>Go to:</span>
-        <input type="number" class="jump-input" id="jumpInput" onchange="jumpToQuestion(this.value)">
-    </div>
-
     <!-- About Section -->
     <footer class="about-section">
         <div class="about-content">
-            <div class="about-row-1">
-                <span class="about-badge">🤖 100% AI Generated</span>
-                <a href="https://github.com/havanphong784/Q-A_Database" target="_blank" class="github-link">
-                    <svg class="github-icon" viewBox="0 0 24 24" width="18" height="18">
-                        <path fill="currentColor"
-                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                    </svg>
-                    GitHub
-                </a>
-            </div>
-            <div class="about-warning">
-                ⚠️ Nội dung được tạo bởi AI và có thể chưa chính xác. Vui lòng tự kiểm chứng trước khi sử dụng.
-            </div>
+            <span class="about-badge">🤖 AI Generated</span>
+            <span class="about-warning">⚠️ Nội dung có thể chưa chính xác</span>
+            <a href="https://github.com/havanphong784/Q-A_Database" target="_blank" class="github-link">
+                <svg class="github-icon" viewBox="0 0 24 24" width="16" height="16">
+                    <path fill="currentColor"
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                GitHub
+            </a>
         </div>
     </footer>
 
@@ -724,38 +930,41 @@
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
             backdrop-filter: blur(12px);
             border-top: 2px solid rgba(102, 126, 234, 0.5);
-            padding: 14px 20px;
+            padding: 8px 20px;
             z-index: 100;
             box-shadow: 0 -5px 30px rgba(102, 126, 234, 0.2);
+            animation: slideFromBottom 0.5s ease-out 0.5s both;
+        }
+
+        @keyframes slideFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .about-content {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .about-row-1 {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .about-badge {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            animation: glow-badge 2s ease-in-out infinite alternate;
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
         }
 
         @keyframes glow-badge {
@@ -763,6 +972,7 @@
                 box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
                 transform: scale(1);
             }
+
             to {
                 box-shadow: 0 0 25px rgba(102, 126, 234, 0.7), 0 0 40px rgba(118, 75, 162, 0.4);
                 transform: scale(1.02);
@@ -770,21 +980,9 @@
         }
 
         .about-warning {
-            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.1));
-            border: 1px solid rgba(251, 191, 36, 0.4);
             color: #fbbf24;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            text-align: center;
-            max-width: 600px;
-            animation: pulse-warning 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse-warning {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.85; }
         }
 
         .github-link {
@@ -817,7 +1015,7 @@
             .about-content {
                 gap: 8px;
             }
-            
+
             .about-section {
                 padding: 12px 15px;
             }
@@ -834,76 +1032,146 @@
         }
     </style>
 
-    <script src="quiz_data.js"></script>
+    <script src="mcq_data.js"></script>
     <script src="vocab_data.js"></script>
     <script>
         // State
-        let allQuestions = [...quizData];
-        let filteredQuestions = [...quizData];
-        let currentQIndex = 0; // Index within filteredQuestions
-        let isAnswerVisible = false;
+        let filteredQuestions = [...mcqData];
+        let currentQIndex = 0;
+        let selectedOption = null;
+        let answered = false;
         let activeCategory = "All";
+
+        // Score tracking
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let answeredQuestions = new Set();
+        let questionResults = {}; // Store which answer was selected for each question
+
+        // LocalStorage key
+        const STORAGE_KEY = 'mcq_quiz_history';
 
         // Elements
         const elQIndex = document.getElementById('qIndex');
         const elQTotal = document.getElementById('qTotal');
         const elQCategory = document.getElementById('qCategory');
         const elQuestionText = document.getElementById('questionText');
-        const elAnswerContainer = document.getElementById('answerContainer');
-        const elAnswerText = document.getElementById('answerText');
-        const elToggleBtn = document.getElementById('toggleBtn');
+        const elOptionsContainer = document.getElementById('optionsContainer');
+        const elResultMessage = document.getElementById('resultMessage');
+        const elResultIcon = document.getElementById('resultIcon');
+        const elResultText = document.getElementById('resultText');
+        const elSourceInfo = document.getElementById('sourceInfo');
         const elProgressBar = document.getElementById('progressBar');
-        const elJumpInput = document.getElementById('jumpInput');
-        const elVocabList = document.getElementById('vocabList');
         const elCateList = document.getElementById('cateList');
+        const elScoreCorrect = document.getElementById('scoreCorrect');
+        const elScoreIncorrect = document.getElementById('scoreIncorrect');
+        const elScoreTotal = document.getElementById('scoreTotal');
+        const elVocabList = document.getElementById('vocabList');
 
         function init() {
+            loadHistory(); // Load saved progress
             renderCategories();
-            loadQuestion(0);
+            loadQuestion(currentQIndex);
+            updateScoreDisplay(false); // Don't animate on initial load
+        }
+
+        // --- LocalStorage Functions ---
+        function saveHistory() {
+            const data = {
+                correctCount,
+                incorrectCount,
+                answeredQuestions: Array.from(answeredQuestions),
+                questionResults,
+                currentQIndex,
+                lastUpdated: new Date().toISOString()
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        }
+
+        function loadHistory() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    correctCount = data.correctCount || 0;
+                    incorrectCount = data.incorrectCount || 0;
+                    answeredQuestions = new Set(data.answeredQuestions || []);
+                    questionResults = data.questionResults || {};
+                    currentQIndex = data.currentQIndex || 0;
+                    console.log('📚 Đã tải lịch sử làm bài:', {
+                        đúng: correctCount,
+                        sai: incorrectCount,
+                        đãLàm: answeredQuestions.size
+                    });
+                }
+            } catch (e) {
+                console.error('Lỗi tải lịch sử:', e);
+            }
+        }
+
+        function clearHistory() {
+            if (confirm('Bạn có chắc muốn xóa toàn bộ lịch sử làm bài?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                correctCount = 0;
+                incorrectCount = 0;
+                answeredQuestions.clear();
+                questionResults = {};
+                currentQIndex = 0;
+                updateScoreDisplay();
+                loadQuestion(0);
+                alert('✅ Đã xóa lịch sử làm bài!');
+            }
         }
 
         // --- Categories Logic ---
         function renderCategories() {
-            // Extract unique categories
             const counts = {};
-            allQuestions.forEach(q => {
+            mcqData.forEach(q => {
                 const cat = q.category || "General";
                 counts[cat] = (counts[cat] || 0) + 1;
             });
 
             const categories = Object.keys(counts);
 
-            // "All" item
-            let html = `<li class="cate-item active" onclick="filterCategory('All')" id="cat-All">
-                All Questions <span class="cate-count">${allQuestions.length}</span>
+            let html = `<li class="cate-item active" data-cat="All" id="cat-All">
+                Tất cả <span class="cate-count">${mcqData.length}</span>
             </li>`;
 
-            categories.forEach(cat => {
-                html += `<li class="cate-item" onclick="filterCategory('${escapeHtml(cat)}')" id="cat-${escapeHtmlId(cat)}">
+            categories.forEach((cat, index) => {
+                html += `<li class="cate-item" data-cat="${index}" id="cat-${escapeHtmlId(cat)}">
                     ${cat} <span class="cate-count">${counts[cat]}</span>
                 </li>`;
             });
 
             elCateList.innerHTML = html;
+
+            // Add click event listeners
+            document.querySelectorAll('.cate-item').forEach(el => {
+                el.addEventListener('click', function () {
+                    const catIndex = this.dataset.cat;
+                    if (catIndex === 'All') {
+                        filterCategory('All');
+                    } else {
+                        filterCategory(categories[parseInt(catIndex)]);
+                    }
+                });
+            });
         }
 
         function filterCategory(cat) {
             activeCategory = cat;
 
-            // Update UI
             document.querySelectorAll('.cate-item').forEach(el => el.classList.remove('active'));
             const activeId = cat === 'All' ? 'cat-All' : `cat-${escapeHtmlId(cat)}`;
             const activeEl = document.getElementById(activeId);
             if (activeEl) activeEl.classList.add('active');
 
-            // Filter Data
             if (cat === 'All') {
-                filteredQuestions = [...allQuestions];
+                filteredQuestions = [...mcqData];
             } else {
-                filteredQuestions = allQuestions.filter(q => (q.category || "General") === cat);
+                filteredQuestions = mcqData.filter(q => (q.category || "General") === cat);
             }
 
-            // Reset view
             currentQIndex = 0;
             loadQuestion(0);
         }
@@ -926,8 +1194,9 @@
         // --- Quiz Logic ---
         function loadQuestion(index) {
             if (filteredQuestions.length === 0) {
-                elQuestionText.textContent = "No questions in this category.";
+                elQuestionText.textContent = "Không có câu hỏi trong chủ đề này.";
                 elQTotal.textContent = "0";
+                elOptionsContainer.innerHTML = "";
                 return;
             }
 
@@ -937,59 +1206,222 @@
             currentQIndex = index;
             const data = filteredQuestions[currentQIndex];
 
+            // Trigger slide animation
+            const quizCard = document.querySelector('.quiz-card');
+            quizCard.classList.remove('animating');
+            void quizCard.offsetWidth; // Force reflow
+            quizCard.classList.add('animating');
+
             // Update UI
             elQTotal.textContent = filteredQuestions.length;
             elQIndex.textContent = currentQIndex + 1;
             elQCategory.textContent = data.category || "General";
             elQuestionText.textContent = data.question;
-            elAnswerText.textContent = data.answer;
 
-            resetAnswer();
+            // Check if already answered
+            const questionId = data.id;
+            const previousResult = questionResults[questionId];
+
+            if (previousResult) {
+                // Restore answered state
+                selectedOption = previousResult.selected;
+                answered = true;
+                renderOptions(data.options, previousResult);
+
+                // Show result message
+                if (previousResult.isCorrect) {
+                    elResultMessage.className = 'result-message correct';
+                    elResultIcon.textContent = '🎉';
+                    elResultText.textContent = 'Chính xác!';
+                } else {
+                    elResultMessage.className = 'result-message incorrect';
+                    elResultIcon.textContent = '❌';
+                    elResultText.textContent = `Sai rồi! Đáp án đúng là: ${previousResult.correct}`;
+                }
+                elSourceInfo.textContent = data.source ? `(Nguồn: ${data.source})` : '';
+            } else {
+                // Reset state for new question
+                selectedOption = null;
+                answered = false;
+                elResultMessage.className = 'result-message';
+                elSourceInfo.textContent = '';
+                renderOptions(data.options, null);
+            }
+
             updateProgress();
 
-            // Update Jump Input (Real ID vs Index? Let's use Index for navigation)
-            elJumpInput.value = currentQIndex + 1;
-            elJumpInput.max = filteredQuestions.length;
-
-            updateVocabPanel(data.question + " " + data.answer);
+            // Update vocabulary panel
+            const optionsText = Object.values(data.options).join(' ');
+            updateVocabPanel(data.question + ' ' + optionsText);
         }
 
-        function resetAnswer() {
-            isAnswerVisible = false;
-            elAnswerContainer.classList.remove('visible');
-            elToggleBtn.textContent = "Show Answer";
-            elToggleBtn.style.background = "var(--accent)";
-            elToggleBtn.style.color = "#0f172a";
+        function renderOptions(options, previousResult = null) {
+            elOptionsContainer.innerHTML = '';
+
+            const letters = ['A', 'B', 'C', 'D'];
+            letters.forEach(letter => {
+                if (options[letter]) {
+                    const optionEl = document.createElement('div');
+                    optionEl.className = 'option';
+                    optionEl.dataset.letter = letter;
+
+                    // Only allow clicking if not already answered
+                    if (!previousResult) {
+                        optionEl.onclick = () => selectOption(letter);
+                    } else {
+                        optionEl.classList.add('disabled');
+
+                        // Mark correct answer
+                        if (letter === previousResult.correct) {
+                            optionEl.classList.add('correct');
+                        }
+                        // Mark wrong selected answer
+                        if (letter === previousResult.selected && !previousResult.isCorrect) {
+                            optionEl.classList.add('incorrect');
+                        }
+                    }
+
+                    let iconHtml = '';
+                    if (previousResult) {
+                        if (letter === previousResult.correct) {
+                            iconHtml = '<span class="option-icon">✓</span>';
+                        } else if (letter === previousResult.selected && !previousResult.isCorrect) {
+                            iconHtml = '<span class="option-icon">✗</span>';
+                        }
+                    }
+
+                    optionEl.innerHTML = `
+                        <span class="option-letter">${letter}</span>
+                        <span class="option-text">${options[letter]}</span>
+                        ${iconHtml}
+                    `;
+
+                    elOptionsContainer.appendChild(optionEl);
+                }
+            });
         }
 
-        function toggleAnswer() {
-            isAnswerVisible = !isAnswerVisible;
-            if (isAnswerVisible) {
-                elAnswerContainer.classList.add('visible');
-                elToggleBtn.textContent = "Hide Answer";
+        function selectOption(letter) {
+            if (answered) return;
+
+            selectedOption = letter;
+
+            // Update UI - highlight selected
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+                if (opt.dataset.letter === letter) {
+                    opt.classList.add('selected');
+                }
+            });
+
+            // Auto check answer after short delay for visual feedback
+            setTimeout(() => {
+                checkAnswer();
+            }, 150);
+        }
+
+        function checkAnswer() {
+            if (!selectedOption || answered) {
+                if (!selectedOption) {
+                    // Shake animation hint
+                    elOptionsContainer.style.animation = 'none';
+                    setTimeout(() => {
+                        elOptionsContainer.style.animation = '';
+                    }, 10);
+                }
+                return;
+            }
+
+            answered = true;
+            const data = filteredQuestions[currentQIndex];
+            const correctAnswer = data.answer;
+            const isCorrect = selectedOption === correctAnswer;
+
+            // Mark options
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.add('disabled');
+                const letter = opt.dataset.letter;
+
+                if (letter === correctAnswer) {
+                    opt.classList.add('correct');
+                    opt.innerHTML += '<span class="option-icon">✓</span>';
+                } else if (letter === selectedOption && !isCorrect) {
+                    opt.classList.add('incorrect');
+                    opt.innerHTML += '<span class="option-icon">✗</span>';
+                }
+            });
+
+            // Show result message
+            if (isCorrect) {
+                elResultMessage.className = 'result-message correct';
+                elResultIcon.textContent = '🎉';
+                elResultText.textContent = 'Chính xác!';
             } else {
-                elAnswerContainer.classList.remove('visible');
-                elToggleBtn.textContent = "Show Answer";
+                elResultMessage.className = 'result-message incorrect';
+                elResultIcon.textContent = '❌';
+                elResultText.textContent = `Sai rồi! Đáp án đúng là: ${correctAnswer}`;
+            }
+
+            elSourceInfo.textContent = data.source ? `(Nguồn: ${data.source})` : '';
+
+            // Update score (only if not already answered this question)
+            const questionId = data.id;
+            if (!answeredQuestions.has(questionId)) {
+                answeredQuestions.add(questionId);
+                questionResults[questionId] = {
+                    selected: selectedOption,
+                    correct: correctAnswer,
+                    isCorrect: isCorrect
+                };
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+                updateScoreDisplay();
+                saveHistory(); // Save progress
+            }
+        }
+
+        function updateScoreDisplay(animated = true) {
+            elScoreCorrect.textContent = correctCount;
+            elScoreIncorrect.textContent = incorrectCount;
+            elScoreTotal.textContent = answeredQuestions.size;
+
+            // Trigger pop animation
+            if (animated) {
+                [elScoreCorrect, elScoreIncorrect, elScoreTotal].forEach(el => {
+                    el.classList.remove('pop');
+                    void el.offsetWidth;
+                    el.classList.add('pop');
+                });
             }
         }
 
         function nextQuestion() {
             if (currentQIndex < filteredQuestions.length - 1) {
                 loadQuestion(currentQIndex + 1);
+                saveHistory(); // Save position
             }
         }
 
         function prevQuestion() {
             if (currentQIndex > 0) {
                 loadQuestion(currentQIndex - 1);
+                saveHistory(); // Save position
             }
         }
 
-        function jumpToQuestion(val) {
-            let idx = parseInt(val) - 1;
-            if (!isNaN(idx)) {
-                loadQuestion(idx);
-            }
+        function resetQuiz() {
+            // Only reset current session scores, keep history
+            correctCount = 0;
+            incorrectCount = 0;
+            answeredQuestions.clear();
+            questionResults = {};
+            currentQIndex = 0;
+            updateScoreDisplay();
+            loadQuestion(0);
+            saveHistory();
         }
 
         function updateProgress() {
@@ -997,9 +1429,31 @@
             elProgressBar.style.width = `${progress}%`;
         }
 
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextQuestion();
+            if (e.key === 'ArrowLeft') prevQuestion();
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (!answered) {
+                    checkAnswer();
+                } else {
+                    nextQuestion();
+                }
+            }
+            if (['1', '2', '3', '4'].includes(e.key)) {
+                const letters = ['A', 'B', 'C', 'D'];
+                const index = parseInt(e.key) - 1;
+                selectOption(letters[index]);
+            }
+            if (['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D'].includes(e.key)) {
+                selectOption(e.key.toUpperCase());
+            }
+        });
+
         // --- Vocab Logic ---
         function updateVocabPanel(text) {
-            elVocabList.innerHTML = "";
+            elVocabList.innerHTML = '';
             const textLower = text.toLowerCase();
 
             const matches = vocabData.filter(v => {
@@ -1015,20 +1469,19 @@
 
             if (matches.length === 0) {
                 const li = document.createElement('li');
-                li.textContent = "Không tìm thấy từ vựng nổi bật.";
-                li.className = "vocab-vn";
+                li.className = 'vocab-item';
+                li.innerHTML = '<span class="vocab-vn">Không tìm thấy từ vựng nổi bật.</span>';
                 elVocabList.appendChild(li);
                 return;
             }
 
+            // Sort by length (longer terms first)
             matches.sort((a, b) => b.en.length - a.en.length);
-
-            // Deduplicate if needed? Usually vocabData is unique keys.
 
             matches.forEach(item => {
                 const li = document.createElement('li');
-                li.className = "vocab-item";
-                li.innerHTML = `<span class="vocab-en">${item.en}</span> <span class="vocab-vn">${item.vn}</span>`;
+                li.className = 'vocab-item';
+                li.innerHTML = `<span class="vocab-en">${item.en}</span><span class="vocab-vn">${item.vn}</span>`;
                 elVocabList.appendChild(li);
             });
         }
@@ -1036,16 +1489,6 @@
         function escapeRegExp(string) {
             return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         }
-
-        // Keys
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextQuestion();
-            if (e.key === 'ArrowLeft') prevQuestion();
-            if (e.key === ' ' || e.key === 'Enter') {
-                e.preventDefault();
-                toggleAnswer();
-            }
-        });
 
         init();
     </script>
