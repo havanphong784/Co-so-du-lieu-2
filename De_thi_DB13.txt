@@ -1,0 +1,252 @@
+ĐẠI HỌC ĐÀ NẴNG
+KHOA CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG
+ĐỀ THI CUỐI KỲ I NĂM HỌC 2019-2020 HỌC PHẦN: CƠ SỞ DỮ LIỆU
+Thời gian làm bài: 60 phút
+Mã đề thi: DB13
+Giảng viên ra đề (Ký, ghi rõ họ tên)
+Kiểm tra của Khoa (Ký, ghi rõ họ tên)
+THÔNG TIN SINH VIÊN
+Họ tên:...........................................Mã số SV:........................................Lớp sinh hoạt:................
+Phần trả lời:
+1 C
+2 A
+3 C
+4 C
+5 D
+6 D
+7 A
+8 A
+9 B
+10 A
+11 D
+12 D
+13 A
+14 D
+15 C
+16 B
+17 C
+18 D
+19 C
+20 A
+21 A
+22 C
+23 D
+24 D
+25 A
+26 C
+27 A
+28 D
+29 B
+30 A
+31 A
+32 D
+33 D
+34 B
+35 B
+36
+A
+37
+A
+38
+B
+39
+C
+40
+D
+Phần câu hỏi
+Câu 1. Which of the following is valid SQL for an Index?
+A. CHANGE INDEX ID
+C. CREATE INDEX ID
+B. ADD INDEX ID
+D. REMOVE INDEX ID
+Câu 2. The result of a SQL SELECT statement is a(n) ________ .
+A. table
+C. file
+Câu 3. When using the SQL INSERT statement:
+A. Rows can be modified according to criteria only.
+C. Rows can either be inserted into a table one at a time or in groups.
+B. form
+D. report
+B. Rows can be inserted into a table only one at a time only.
+D. Rows cannot be copied in mass from one table to another only.
+Câu 4. When three or more AND and OR conditions are combined, it is easier to use the SQL keyword(s):
+A. NOT IN
+C. IN and NOT IN
+Câu 5. Which of the following is a correlated subquery?
+A. Uses the result of an inner query to determine the processing of an inner query.
+C. Uses the result of an outer query to determine the processing of an outer query.
+B. IN
+D. LIKE
+B. Uses the result of an inner query to determine the processing of an outer query.
+D. Uses the result of an outer query to determine the processing of an inner query.
+Câu 6. Which is NOT one of the most common types of SQL CHECK constraints?
+A. Comparing one column value to another within the same table
+C. Range checks
+B. Lists of value
+D. System date
+Câu 7. An application where only one user accesses the database at a given time is an example of a(n) ________ .
+A. Single-user database application
+C. E-commerce database application
+Câu 8. The HAVING clause does which of the following?
+A. Acts like a WHERE clause but is used for groups rather than rows.
+C. Acts EXACTLY like a WHERE clause.
+B. Data mining database application
+D. Multiuser database application
+B. Acts like a WHERE clause but is used for rows rather than columns.
+D. Acts like a WHERE clause but is used for columns rather than groups.
+Câu 9. A functional dependency is a relationship between or among:
+A. Relations
+C. Tables
+B. Attributes
+D. Rows
+Câu 10. Which of the following is not a restriction for a table to be a relation?
+A. The columns must be ordered.
+C. No two rows in a table may be identical.
+B. All of the entries in any column must be of the same kind.
+D. The cells of the table must contain a single value.
+Câu 11. The command to remove rows from a table CUSTOMER is:
+A. UPDATE FROM CUSTOMER ...
+C. REMOVE FROM CUSTOMER ...
+Câu 12. Data administrators are responsible for:
+A. Managing technical issues in the database environment.
+C. Physical database design.
+B. DROP FROM CUSTOMER ...
+D. DELETE FROM CUSTOMER WHERE ...
+B. Writing application programs.
+D. Overall management of data resources in an organization.
+Câu 13. One solution to the multivalued dependency constraint problem is to:
+A. Split the relation into two relations, each with a single theme.
+C. Change the theme.
+B. Add a composite key.
+D. Create a new theme.
+Câu 14. Creating a read-only database is a task that is ________ assigned to beginning database professionals.
+A. Never
+C. Commonly
+B. Always
+D. Seldom
+Câu 15. To remove a relation from an SQL database, we use the ______ command.
+A. DELETE TABLE
+C. DROP TABLE
+B. PURGE TABLE
+D. REMOVE TABLE
+Câu 16. Some advantages of the database approach include all, but:
+A. Minimal data redundancy.
+C. Improved data consistency.
+B. Program-data dependency.
+D. Improved data sharing.
+Câu 17. A domain is atomic if elements of the domain are considered to be ____________ units.
+A. Divisible
+C. Indivisbile
+B. Different
+D. Constant
+Câu 18. An attribute in a relation is a foreign key if the _______ key from one relation is used as an attribute in that relation.
+A. Sub
+C. Candidate
+B. Super
+D. Primary
+Câu 19. To define what columns should be displayed in an SQL SELECT statement:
+A. use USING to name the source table(s) and list the columns to be shown after WHERE.
+C. use FROM to name the source table(s) and list the columns to be shown after SELECT.
+B. use USING to name the source table(s) and list the columns to be shown after SELECT.
+D. use SELECT to name the source table(s) and list the columns to be shown after USING.
+Câu 20. The following are components of a database except ________ .
+A. reports
+C. user data
+Câu 21. What is not an advantage of stored procedures?
+A. Increased network traffic
+C. Greater security
+B. metadata
+D. indexes
+B. SQL can be optimized
+D. Code sharing
+Câu 22. You can add a row using SQL in a database with which of the following?
+A. CREATE	B. NEW
+C. INSERT	D. MAKE
+Câu 23. If attributes A and B determine attribute C, then it is also true that:
+A. B → C.	B. C is a determinant.
+C. A → C.	D. (A,B) is a composite determinant.
+Câu 24. A recursive relationship is a relationship between an entity and ________ .
+A. A subtype entity
+C. An instance entity
+Câu 25. The DROP TABLE statement:
+A. Deletes the table structure along with the table data.
+C. Is not an SQL statement.
+Câu 26. A subquery in an SQL SELECT statement:
+A. Can always be duplicated by a join.
+C. Cannot have its results sorted using ORDER BY.
+B. An erchetype entity
+D. Itself
+B. Works whether or not referential integrity constraints would be violated.
+D. Deletes the table structure only.
+B. Has a distinct form that cannot be duplicated by a join.
+D. Can only be used with two tables.
+Câu 27. SQL data definition commands make up a(n) ________ .
+A. DDL
+C. DML
+Câu 28. A key:
+A. Can only be one column.
+C. Identifies a column
+Câu 29. The wildcard in a WHERE clause is useful when?
+A. An exact match is necessary in a CREATE statement.
+C. An exact match is necessary in a SELECT statement.
+Câu 30. How many JDBC driver types does Sun define?
+A. Four
+C. One
+Câu 31. Row is synonymous with the term:
+A. Record
+C. Column
+Câu 32. The primary key is selected from the:
+A. Determinants
+C. Composite keys
+Câu 33. SQL is:
+A. An operating system
+C. A programming language
+B. HTML
+D. XML
+B. Must always be composed of two or more columns.
+D. Identifies a row.
+B. An exact match is not possible in a SELECT statement.
+D. An exact match is not possible in a CREATE statement.
+B. Three
+D. Two
+B. Field
+D. Relation
+B. Foreign keys
+D. Candidate keys
+B. A DBMS
+D. A data sublanguage
+Câu 34. Metadata enables database designers and users to do all of the following except:
+A. Understand what data exist
+C. What the data mean
+B. Sample data
+D. What the fine distinctions are between similar data items.
+Câu 35. Entities can be associated with one another in which of the following?
+A. Attributes
+C. Entities
+Câu 36. A relational database consists of a collection of
+A. Tables
+C. Fields
+B. Relationships
+D. Identifiers
+B. Records
+D. Keys
+Câu 37. What MySQL property is used to create a surrogate key in MySQL?
+A. AUTO_INCREMENT
+C. SEQUENCE
+B. UNIQUE
+D. INDEX
+Câu 38. Because it contains a description of its own structure, a database is considered to be ________ .
+A. described
+C. an application program
+B. self-describing
+D. metadata compatible
+Câu 39. SQL query and modification commands make up a(n) ________ .
+A. DDL	B. XML
+C. DML	D. HTML
+Câu 40. Which of the following is NOT a type of SQL constraint?
+A. FOREIGN KEY
+C. UNIQUE
+B. PRIMARY KEY
+D. ALTERNATE KEY
+……… HẾT ………
+(Ghi chú : Đề thi không cho phép mở tài liệu)

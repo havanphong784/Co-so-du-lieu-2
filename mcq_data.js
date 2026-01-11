@@ -1,6 +1,1495 @@
 // Multiple Choice Questions Data
 const mcqData = [
     {
+        id: 171,
+        category: "Exam DB01",
+        question: "How many JDBC driver types does Sun define?",
+        options: {
+            A: "Four",
+            C: "Two",
+            B: "Three",
+            D: "One"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 1"
+    },
+    {
+        id: 172,
+        category: "Exam DB01",
+        question: "What SQL structure is used to limit column values of a table?",
+        options: {
+            A: "The LIMIT constraint",
+            C: "The VALUE constaint",
+            B: "The COUNT constaint",
+            D: "The CHECK constraint"
+        },
+        answer: "D",
+        source: "De thi DB01 Cau 2"
+    },
+    {
+        id: 173,
+        category: "Exam DB01",
+        question: "Which of the following statements is true concerning routines and triggers?",
+        options: {
+            A: "Both have to be called to operate.",
+            C: "Both consist of procedural code.",
+            B: "Both are stored in the database.",
+            D: "Both run automatically."
+        },
+        answer: "B",
+        source: "De thi DB01 Cau 3"
+    },
+    {
+        id: 174,
+        category: "Exam DB01",
+        question: "Data administrators are responsible for:",
+        options: {
+            A: "Writing application programs.",
+            C: "Overall management of data resources in an organization.",
+            B: "Managing technical issues in the database environment.",
+            D: "Physical database design."
+        },
+        answer: "C",
+        source: "De thi DB01 Cau 4"
+    },
+    {
+        id: 175,
+        category: "Exam DB01",
+        question: "When assessing the table structure of an acquired set of tables with data, determining foreign keys is (part of) the:",
+        options: {
+            A: "Fourth step",
+            C: "Third step",
+            B: "Second step",
+            D: "First step"
+        },
+        answer: "C",
+        source: "De thi DB01 Cau 5"
+    },
+    {
+        id: 176,
+        category: "Exam DB01",
+        question: "An attribute that names or identifies entity instances is a(n):",
+        options: {
+            A: "Identifier",
+            C: "Attribute"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 6"
+    },
+    {
+        id: 177,
+        category: "Exam DB01",
+        question: "SQL stands for ________ .",
+        options: {
+            A: "Structured Query Language",
+            C: "Structured Question Language",
+            B: "Sequential Question Language",
+            D: "Sequential Query Language"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 7"
+    },
+    {
+        id: 178,
+        category: "Exam DB01",
+        question: "SQL data definition commands make up a(n) ________ .",
+        options: {
+            A: "HTML",
+            C: "DDL"
+        },
+        answer: "C",
+        source: "De thi DB01 Cau 8"
+    },
+    {
+        id: 179,
+        category: "Exam DB01",
+        question: "A relational database consists of a collection of",
+        options: {
+            A: "Fields",
+            C: "Tables",
+            B: "Keys",
+            D: "Records"
+        },
+        answer: "C",
+        source: "De thi DB01 Cau 9"
+    },
+    {
+        id: 180,
+        category: "Exam DB01",
+        question: "________ was adopted as a national standard by ANSI in 1992.",
+        options: {
+            A: "Microsoft Access",
+            C: "DBase",
+            B: "SQL",
+            D: "Oracle"
+        },
+        answer: "B",
+        source: "De thi DB01 Cau 10"
+    },
+    {
+        id: 181,
+        category: "Exam DB01",
+        question: "One solution to the multivalued dependency constraint problem is to:",
+        options: {
+            A: "Split the relation into two relations, each with a single theme.",
+            C: "Change the theme."
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 11"
+    },
+    {
+        id: 182,
+        category: "Exam DB01",
+        question: "The DROP TABLE statement:",
+        options: {
+            A: "Deletes the table structure along with the table data.",
+            C: "Is not an SQL statement.",
+            B: "Deletes the table structure only.",
+            D: "Works whether or not referential integrity constraints would be violated."
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 12"
+    },
+    {
+        id: 183,
+        category: "Exam DB01",
+        question: "Properties that describe the characteristics of entities are called:",
+        options: {
+            A: "Entities",
+            C: "Attributes",
+            B: "Identifers",
+            D: "Relationships"
+        },
+        answer: "C",
+        source: "De thi DB01 Cau 13"
+    },
+    {
+        id: 184,
+        category: "Exam DB01",
+        question: "Views constructed from SQL SELECT statements that conform to the SQL-92 standard may not contain:",
+        options: {
+            A: "ORDER BY",
+            C: "GROUP BY",
+            B: "WHERE",
+            D: "FROM"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 14"
+    },
+    {
+        id: 185,
+        category: "Exam DB01",
+        question: "Metadata enables database designers and users to do all of the following except:",
+        options: {
+            A: "What the data mean",
+            C: "What the fine distinctions are between similar data items.",
+            B: "Understand what data exist",
+            D: "Sample data"
+        },
+        answer: "D",
+        source: "De thi DB01 Cau 15"
+    },
+    {
+        id: 186,
+        category: "Exam DB01",
+        question: "Entities can be associated with one another in which of the following?",
+        options: {
+            A: "Relationships",
+            C: "Entities"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 16"
+    },
+    {
+        id: 187,
+        category: "Exam DB01",
+        question: "The SQL statement to create a view is:",
+        options: {
+            A: "CREATE VIEW",
+            C: "MAKE VIEW",
+            B: "NEW VIEW",
+            D: "INSERT VIEW"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 17"
+    },
+    {
+        id: 188,
+        category: "Exam DB01",
+        question: "Which of the following is a group of one or more attributes that uniquely identifies a row?",
+        options: {
+            A: "Tuple",
+            C: "Relation"
+        },
+        answer: "B",
+        source: "De thi DB01 Cau 18"
+    },
+    {
+        id: 189,
+        category: "Exam DB01",
+        question: "Embedded SQL is which of the following?",
+        options: {
+            A: "Hard-coded SQL statements in a procedure.",
+            C: "Hard-coded SQL statements in a trigger."
+        },
+        answer: "B",
+        source: "De thi DB01 Cau 19"
+    },
+    {
+        id: 190,
+        category: "Exam DB01",
+        question: "A view is which of the following?",
+        options: {
+            A: "A virtual table that can be accessed via SQL commands",
+            C: "A virtual table that cannot be accessed via SQL commands"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 20"
+    },
+    {
+        id: 191,
+        category: "Exam DB01",
+        question: "Which one of the following sorts rows in SQL?",
+        options: {
+            A: "ALIGN BY",
+            C: "SORT BY",
+            B: "ORDER BY",
+            D: "GROUP BY"
+        },
+        answer: "B",
+        source: "De thi DB01 Cau 21"
+    },
+    {
+        id: 192,
+        category: "Exam DB01",
+        question: "A ________ in a table represents a relationship among a set of values.",
+        options: {
+            A: "Row",
+            B: "Column",
+            C: "Key",
+            D: "Entry"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 22"
+    },
+    {
+        id: 193,
+        category: "Exam DB01",
+        question: "What is an SQL virtual table that is constructed from other tables?",
+        options: {
+            A: "Another table",
+            C: "A relation",
+            B: "Query results",
+            D: "A view"
+        },
+        answer: "D",
+        source: "De thi DB01 Cau 23"
+    },
+    {
+        id: 194,
+        category: "Exam DB01",
+        question: "Which one of the following is a procedural language?",
+        options: {
+            A: "Tuple relational calculus",
+            C: "Domain relational calculus"
+        },
+        answer: "B",
+        source: "De thi DB01 Cau 24"
+    },
+    {
+        id: 195,
+        category: "Exam DB01",
+        question: "A subquery in an SQL SELECT statement:",
+        options: {
+            A: "Cannot have its results sorted using ORDER BY.",
+            C: "Can only be used with two tables.",
+            B: "Has a distinct form that cannot be duplicated by a join.",
+            D: "Can always be duplicated by a join."
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 25"
+    },
+    {
+        id: 196,
+        category: "Exam DB01",
+        question: "The result of a SQL SELECT statement is a(n) ________ .",
+        options: {
+            A: "table",
+            B: "file",
+            C: "report",
+            D: "form"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 26"
+    },
+    {
+        id: 197,
+        category: "Exam DB01",
+        question: "You can add a row using SQL in a database with which of the following?",
+        options: {
+            A: "INSERT",
+            B: "MAKE",
+            C: "CREATE",
+            D: "NEW"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 27"
+    },
+    {
+        id: 198,
+        category: "Exam DB01",
+        question: "When three or more AND and OR conditions are combined, it is easier to use the SQL keyword(s):",
+        options: {
+            A: "IN",
+            C: "NOT IN",
+            B: "LIKE",
+            D: "IN and NOT IN"
+        },
+        answer: "D",
+        source: "De thi DB01 Cau 28"
+    },
+    {
+        id: 199,
+        category: "Exam DB01",
+        question: "Using the SQL GROUP BY phrase with a SELECT statement can help detect which of the following problems?",
+        options: {
+            A: "The general-purpose remarks column problem",
+            C: "The inconsistent values problem",
+            B: "The missing values problem",
+            D: "The multivalue, multicolumn problem"
+        },
+        answer: "D",
+        source: "De thi DB01 Cau 29"
+    },
+    {
+        id: 200,
+        category: "Exam DB01",
+        question: "The command to eliminate a table from a database is:",
+        options: {
+            A: "REMOVE TABLE CUSTOMER;",
+            C: "DELETE TABLE CUSTOMER;",
+            B: "DROP TABLE CUSTOMER;",
+            D: "UPDATE TABLE CUSTOMER;"
+        },
+        answer: "B",
+        source: "De thi DB01 Cau 30"
+    },
+    {
+        id: 201,
+        category: "Exam DB01",
+        question: "Using which language can a user request information from a database?",
+        options: {
+            A: "Query",
+            C: "Relational"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 31"
+    },
+    {
+        id: 202,
+        category: "Exam DB01",
+        question: "Table is synonymous with the term:",
+        options: {
+            A: "Record",
+            C: "Relation",
+            B: "Column",
+            D: "Field"
+        },
+        answer: "C",
+        source: "De thi DB01 Cau 32"
+    },
+    {
+        id: 203,
+        category: "Exam DB01",
+        question: "The Microsoft Access wildcards are ____ and ____ .",
+        options: {
+            A: "question mark (?); asterisk (*)",
+            C: "percent sign (%); underscore (_)",
+            B: "underscore(_); question mark (?)",
+            D: "asterisk (*); percent sign (%)"
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 33"
+    },
+    {
+        id: 204,
+        category: "Exam DB01",
+        question: "Which of the following is not a restriction for a table to be a relation?",
+        options: {
+            A: "The columns must be ordered.",
+            C: "The cells of the table must contain a single value.",
+            B: "No two rows in a table may be identical.",
+            D: "All of the entries in any column must be of the same kind."
+        },
+        answer: "A",
+        source: "De thi DB01 Cau 34"
+    },
+    {
+        id: 205,
+        category: "Exam DB01",
+        question: "Which one of the following is a set of one or more attributes taken collectively to uniquely identify a record?",
+        options: {
+            A: "Candidate key",
+            C: "Sub key",
+            D: "Super key"
+        },
+        answer: "D",
+        source: "De thi DB01 Cau 35"
+    },
+    {
+        id: 206,
+        category: "Exam DB01",
+        question: "What is not an advantage of stored procedures?",
+        options: {
+            A: "Code sharing",
+            C: "SQL can be optimized",
+            D: "Increased network traffic"
+        },
+        answer: "D",
+        source: "De thi DB01 Cau 36"
+    },
+    {
+        id: 207,
+        category: "Exam DB01",
+        question: "SQL is:",
+        options: {
+            A: "A DBMS",
+            C: "A data sublanguage",
+            B: "An operating system",
+            D: "A programming language"
+        },
+        answer: "C",
+        source: "De thi DB01 Cau 37"
+    },
+    {
+        id: 208,
+        category: "Exam DB01",
+        question: "A relation is considered a:",
+        options: {
+            A: "Column",
+            C: "Two dimensional table",
+            B: "Three dimensional table",
+            D: "One dimensional table"
+        },
+        answer: "C",
+        source: "De thi DB01 Cau 38"
+    },
+    {
+        id: 209,
+        category: "Exam DB01",
+        question: "Which of the following types of databases are the most common?",
+        options: {
+            A: "Department",
+            C: "Personal",
+            B: "Workgroup",
+            D: "Enterprise"
+        },
+        answer: "D",
+        source: "De thi DB01 Cau 39"
+    },
+    {
+        id: 210,
+        category: "Exam DB01",
+        question: "Which one of the following attribute can be taken as a primary key?",
+        options: {
+            A: "Department",
+            B: "Name",
+            C: "Street",
+            D: "Id"
+        },
+        answer: "D",
+        source: "De thi DB01 Cau 40"
+    }
+,
+    {
+        id: 211,
+        category: "Exam DB12",
+        question: "Helping people keep track of things is the purpose of a(n) ________ .",
+        options: {
+            A: "relationship",
+            C: "instance",
+            B: "database",
+            D: "table"
+        },
+        answer: "B",
+        source: "Exam DB12 Cau 1"
+    },
+    {
+        id: 212,
+        category: "Exam DB12",
+        question: "Creating a read-only database is a task that is ________ assigned to beginning database professionals.",
+        options: {
+            A: "Commonly",
+            C: "Seldom"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 2"
+    },
+    {
+        id: 213,
+        category: "Exam DB12",
+        question: "A UNION query is which of the following?",
+        options: {
+            A: "Combines the output from multiple queries and does not include the same number of columns.",
+            C: "Combines the output from multiple queries and must include the same number of columns.",
+            B: "Combines the output from no more than two queries and does not include the same number of columns.",
+            D: "Combines the output from no more than two queries and must include the same number of columns."
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 3"
+    },
+    {
+        id: 214,
+        category: "Exam DB12",
+        question: "A domain is atomic if elements of the domain are considered to be ____________ units.",
+        options: {
+            A: "Indivisbile",
+            C: "Divisible",
+            B: "Different",
+            D: "Constant"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 4"
+    },
+    {
+        id: 215,
+        category: "Exam DB12",
+        question: "Which of the following are the five built-in functions provided by SQL?",
+        options: {
+            A: "SUM, AVG, MIN, MAX, SUB",
+            C: "COUNT, SUM, AVG, MAX, MIN"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 5"
+    },
+    {
+        id: 216,
+        category: "Exam DB12",
+        question: "Which of the following is valid SQL for an Index?",
+        options: {
+            A: "CHANGE INDEX ID",
+            C: "ADD INDEX ID",
+            B: "CREATE INDEX ID",
+            D: "REMOVE INDEX ID"
+        },
+        answer: "B",
+        source: "Exam DB12 Cau 6"
+    },
+    {
+        id: 217,
+        category: "Exam DB12",
+        question: "The result of a SQL SELECT statement is a(n) ________ .",
+        options: {
+            A: "form",
+            C: "report",
+            B: "file",
+            D: "table"
+        },
+        answer: "D",
+        source: "Exam DB12 Cau 7"
+    },
+    {
+        id: 218,
+        category: "Exam DB12",
+        question: "Which of the following is true concerning a procedure?",
+        options: {
+            A: "You do not create them with SQL.",
+            C: "They include procedural and SQL statements.",
+            B: "They are the same thing as a function.",
+            D: "They do not need to have a unique name."
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 8"
+    },
+    {
+        id: 219,
+        category: "Exam DB12",
+        question: "SQL data definition commands make up a(n) ________ .",
+        options: {
+            A: "DDL",
+            C: "HTML"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 9"
+    },
+    {
+        id: 220,
+        category: "Exam DB12",
+        question: "The SQL command to create a table is:",
+        options: {
+            A: "NEW TABLE",
+            C: "INSERT TABLE",
+            B: "CREATE TABLE",
+            D: "MAKE TABLE"
+        },
+        answer: "B",
+        source: "Exam DB12 Cau 10"
+    },
+    {
+        id: 221,
+        category: "Exam DB12",
+        question: "Which of the following is NOT a basic element of all versions of the E-R model?",
+        options: {
+            A: "Entities",
+            C: "Relationships"
+        },
+        answer: "B",
+        source: "Exam DB12 Cau 11"
+    },
+    {
+        id: 222,
+        category: "Exam DB12",
+        question: "A subquery in an SQL SELECT statement:",
+        options: {
+            A: "Cannot have its results sorted using ORDER BY.",
+            C: "Can only be used with two tables.",
+            B: "Can always be duplicated by a join.",
+            D: "Has a distinct form that cannot be duplicated by a join."
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 12"
+    },
+    {
+        id: 223,
+        category: "Exam DB12",
+        question: "The SQL keyword(s) ________ is used with wildcards.",
+        options: {
+            A: "IN and NOT IN",
+            C: "LIKE",
+            B: "NOT IN",
+            D: "IN"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 13"
+    },
+    {
+        id: 224,
+        category: "Exam DB12",
+        question: "Which of the following types of databases are the most common?",
+        options: {
+            A: "Enterprise",
+            C: "Workgroup",
+            B: "Personal",
+            D: "Department"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 14"
+    },
+    {
+        id: 225,
+        category: "Exam DB12",
+        question: "Which one of the following is a set of one or more attributes taken collectively to uniquely identify a record?",
+        options: {
+            A: "Candidate key",
+            C: "Super key",
+            B: "Sub key",
+            D: "Foreign key"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 15"
+    },
+    {
+        id: 226,
+        category: "Exam DB12",
+        question: "Which one of the following is a procedural language?",
+        options: {
+            A: "Relational algebra",
+            C: "Domain relational calculus"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 16"
+    },
+    {
+        id: 227,
+        category: "Exam DB12",
+        question: "The primary key is selected from the:",
+        options: {
+            A: "Composite keys",
+            C: "Candidate keys",
+            B: "Determinants",
+            D: "Foreign keys"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 17"
+    },
+    {
+        id: 228,
+        category: "Exam DB12",
+        question: "An attribute that names or identifies entity instances is a(n):",
+        options: {
+            A: "Attribute",
+            C: "Relationship",
+            B: "Identifier",
+            D: "Entity"
+        },
+        answer: "B",
+        source: "Exam DB12 Cau 18"
+    },
+    {
+        id: 229,
+        category: "Exam DB12",
+        question: "The command to eliminate a table from a database is:",
+        options: {
+            A: "DROP TABLE CUSTOMER;",
+            C: "DELETE TABLE CUSTOMER;",
+            B: "REMOVE TABLE CUSTOMER;",
+            D: "UPDATE TABLE CUSTOMER;"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 19"
+    },
+    {
+        id: 230,
+        category: "Exam DB12",
+        question: "You can add a row using SQL in a database with which of the following?",
+        options: {
+            A: "NEW",
+            B: "CREATE",
+            C: "MAKE",
+            D: "INSERT"
+        },
+        answer: "D",
+        source: "Exam DB12 Cau 20"
+    },
+    {
+        id: 231,
+        category: "Exam DB12",
+        question: "A functional dependency is a relationship between or among:",
+        options: {
+            A: "Attributes",
+            C: "Rows"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 21"
+    },
+    {
+        id: 232,
+        category: "Exam DB12",
+        question: "A relational database consists of a collection of",
+        options: {
+            A: "Fields",
+            C: "Tables",
+            B: "Records",
+            D: "Keys"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 22"
+    },
+    {
+        id: 233,
+        category: "Exam DB12",
+        question: "________ is an open source DBMS product that runs on UNIX, Linux and Windows.",
+        options: {
+            A: "Sun ACCESS",
+            C: "JDBC/SQL"
+        },
+        answer: "D",
+        source: "Exam DB12 Cau 23"
+    },
+    {
+        id: 234,
+        category: "Exam DB12",
+        question: "A key:",
+        options: {
+            A: "Identifies a row.",
+            C: "Identifies a column",
+            B: "Must always be composed of two or more columns.",
+            D: "Can only be one column."
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 24"
+    },
+    {
+        id: 235,
+        category: "Exam DB12",
+        question: "Which of the following is a group of one or more attributes that uniquely identifies a row?",
+        options: {
+            A: "Key",
+            C: "Determinant",
+            B: "Tuple",
+            D: "Relation"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 25"
+    },
+    {
+        id: 236,
+        category: "Exam DB12",
+        question: "To remove duplicate rows from the results of an SQL SELECT statement, the ________ qualifier specified must be included.",
+        options: {
+            A: "DISTINCT",
+            C: "SINGLE",
+            B: "UNIQUE",
+            D: "ONLY"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 26"
+    },
+    {
+        id: 237,
+        category: "Exam DB12",
+        question: "If attributes A and B determine attribute C, then it is also true that:",
+        options: {
+            A: "(A,B) is a composite determinant.",
+            C: "",
+            B: "C is a determinant.",
+            D: "B →"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 27"
+    },
+    {
+        id: 238,
+        category: "Exam DB12",
+        question: "The HAVING clause does which of the following?",
+        options: {
+            A: "Acts like a WHERE clause but is used for rows rather than columns.",
+            C: "Acts like a WHERE clause but is used for groups rather than rows."
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 28"
+    },
+    {
+        id: 239,
+        category: "Exam DB12",
+        question: "What is not an advantage of stored procedures?",
+        options: {
+            A: "SQL can be optimized",
+            C: "Increased network traffic",
+            B: "Greater security",
+            D: "Code sharing"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 29"
+    },
+    {
+        id: 240,
+        category: "Exam DB12",
+        question: "A CASE SQL statement is which of the following?",
+        options: {
+            A: "A way to establish an IF-THEN-ELSE in SQL.",
+            C: "A way to establish a data definition in SQL."
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 30"
+    },
+    {
+        id: 241,
+        category: "Exam DB12",
+        question: "An attribute is a(n):",
+        options: {
+            A: "Column of a table.",
+            C: "Row of a table",
+            B: "Two dimensional table",
+            D: "Column of a table"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 31"
+    },
+    {
+        id: 242,
+        category: "Exam DB12",
+        question: "The term attribute refers to a ___________ of a table.",
+        options: {
+            A: "Tuple",
+            C: "Key",
+            B: "Column",
+            D: "Record"
+        },
+        answer: "B",
+        source: "Exam DB12 Cau 32"
+    },
+    {
+        id: 243,
+        category: "Exam DB12",
+        question: "The Microsoft Access wildcards are ____ and ____ .",
+        options: {
+            A: "question mark (?); asterisk (*)",
+            C: "underscore(_); question mark (?)"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 33"
+    },
+    {
+        id: 244,
+        category: "Exam DB12",
+        question: "The term _______ is used to refer to a row.",
+        options: {
+            A: "Field",
+            C: "Instance"
+        },
+        answer: "D",
+        source: "Exam DB12 Cau 34"
+    },
+    {
+        id: 245,
+        category: "Exam DB12",
+        question: "SQL is:",
+        options: {
+            A: "A data sublanguage",
+            C: "A programming language",
+            B: "A DBMS",
+            D: "An operating system"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 35"
+    },
+    {
+        id: 246,
+        category: "Exam DB12",
+        question: "Which of the following is true concerning triggers?",
+        options: {
+            A: "You do not create them with SQL.",
+            C: "They execute against only some applications that access a database.",
+            B: "They have an event, condition, and action.",
+            D: "They cannot cascade (cause another trigger to fire)."
+        },
+        answer: "B",
+        source: "Exam DB12 Cau 36"
+    },
+    {
+        id: 247,
+        category: "Exam DB12",
+        question: "What is an SQL virtual table that is constructed from other tables?",
+        options: {
+            A: "Query results",
+            C: "A view"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 37"
+    },
+    {
+        id: 248,
+        category: "Exam DB12",
+        question: "Which one of the following sorts rows in SQL?",
+        options: {
+            A: "ORDER BY",
+            C: "GROUP BY"
+        },
+        answer: "A",
+        source: "Exam DB12 Cau 38"
+    },
+    {
+        id: 249,
+        category: "Exam DB12",
+        question: "The SQL keyword BETWEEN is used:",
+        options: {
+            A: "To limit the column displayed",
+            C: "For ranges",
+            B: "Sort the results",
+            D: "As a wildcard"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 39"
+    },
+    {
+        id: 250,
+        category: "Exam DB12",
+        question: "Row is synonymous with the term:",
+        options: {
+            A: "Field",
+            C: "Record",
+            B: "Column",
+            D: "Relation"
+        },
+        answer: "C",
+        source: "Exam DB12 Cau 40"
+    }
+,
+    {
+        id: 251,
+        category: "Exam DB13",
+        question: "Which of the following is valid SQL for an Index?",
+        options: {
+            A: "CHANGE INDEX ID",
+            C: "CREATE INDEX ID",
+            B: "ADD INDEX ID",
+            D: "REMOVE INDEX ID"
+        },
+        answer: "C",
+        source: "Exam DB13 Cau 1"
+    },
+    {
+        id: 252,
+        category: "Exam DB13",
+        question: "The result of a SQL SELECT statement is a(n) ________ .",
+        options: {
+            A: "table",
+            C: "file"
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 2"
+    },
+    {
+        id: 253,
+        category: "Exam DB13",
+        question: "When using the SQL INSERT statement:",
+        options: {
+            A: "Rows can be modified according to criteria only.",
+            C: "Rows can either be inserted into a table one at a time or in groups.",
+            B: "Rows can be inserted into a table only one at a time only.",
+            D: "Rows cannot be copied in mass from one table to another only."
+        },
+        answer: "C",
+        source: "Exam DB13 Cau 3"
+    },
+    {
+        id: 254,
+        category: "Exam DB13",
+        question: "When three or more AND and OR conditions are combined, it is easier to use the SQL keyword(s):",
+        options: {
+            A: "NOT IN",
+            C: "IN and NOT IN"
+        },
+        answer: "C",
+        source: "Exam DB13 Cau 4"
+    },
+    {
+        id: 255,
+        category: "Exam DB13",
+        question: "Which of the following is a correlated subquery?",
+        options: {
+            A: "Uses the result of an inner query to determine the processing of an inner query.",
+            C: "Uses the result of an outer query to determine the processing of an outer query.",
+            B: "Uses the result of an inner query to determine the processing of an outer query.",
+            D: "Uses the result of an outer query to determine the processing of an inner query."
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 5"
+    },
+    {
+        id: 256,
+        category: "Exam DB13",
+        question: "Which is NOT one of the most common types of SQL CHECK constraints?",
+        options: {
+            A: "Comparing one column value to another within the same table",
+            C: "Range checks",
+            B: "Lists of value",
+            D: "System date"
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 6"
+    },
+    {
+        id: 257,
+        category: "Exam DB13",
+        question: "An application where only one user accesses the database at a given time is an example of a(n) ________ .",
+        options: {
+            A: "Single-user database application",
+            C: "E-commerce database application"
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 7"
+    },
+    {
+        id: 258,
+        category: "Exam DB13",
+        question: "The HAVING clause does which of the following?",
+        options: {
+            A: "Acts like a WHERE clause but is used for groups rather than rows.",
+            C: "Acts EXACTLY like a WHERE clause.",
+            B: "Acts like a WHERE clause but is used for rows rather than columns.",
+            D: "Acts like a WHERE clause but is used for columns rather than groups."
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 8"
+    },
+    {
+        id: 259,
+        category: "Exam DB13",
+        question: "A functional dependency is a relationship between or among:",
+        options: {
+            A: "Relations",
+            C: "Tables",
+            B: "Attributes",
+            D: "Rows"
+        },
+        answer: "B",
+        source: "Exam DB13 Cau 9"
+    },
+    {
+        id: 260,
+        category: "Exam DB13",
+        question: "Which of the following is not a restriction for a table to be a relation?",
+        options: {
+            A: "The columns must be ordered.",
+            C: "No two rows in a table may be identical.",
+            B: "All of the entries in any column must be of the same kind.",
+            D: "The cells of the table must contain a single value."
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 10"
+    },
+    {
+        id: 261,
+        category: "Exam DB13",
+        question: "The command to remove rows from a table CUSTOMER is:",
+        options: {
+            A: "UPDATE FROM CUSTOMER ...",
+            C: "REMOVE FROM CUSTOMER ..."
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 11"
+    },
+    {
+        id: 262,
+        category: "Exam DB13",
+        question: "Data administrators are responsible for:",
+        options: {
+            A: "Managing technical issues in the database environment.",
+            C: "Physical database design.",
+            B: "Writing application programs.",
+            D: "Overall management of data resources in an organization."
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 12"
+    },
+    {
+        id: 263,
+        category: "Exam DB13",
+        question: "One solution to the multivalued dependency constraint problem is to:",
+        options: {
+            A: "Split the relation into two relations, each with a single theme.",
+            C: "Change the theme.",
+            B: "Add a composite key.",
+            D: "Create a new theme."
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 13"
+    },
+    {
+        id: 264,
+        category: "Exam DB13",
+        question: "Creating a read-only database is a task that is ________ assigned to beginning database professionals.",
+        options: {
+            A: "Never",
+            C: "Commonly",
+            B: "Always",
+            D: "Seldom"
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 14"
+    },
+    {
+        id: 265,
+        category: "Exam DB13",
+        question: "To remove a relation from an SQL database, we use the ______ command.",
+        options: {
+            A: "DELETE TABLE",
+            C: "DROP TABLE",
+            B: "PURGE TABLE",
+            D: "REMOVE TABLE"
+        },
+        answer: "C",
+        source: "Exam DB13 Cau 15"
+    },
+    {
+        id: 266,
+        category: "Exam DB13",
+        question: "Some advantages of the database approach include all, but:",
+        options: {
+            A: "Minimal data redundancy.",
+            C: "Improved data consistency.",
+            B: "Program-data dependency.",
+            D: "Improved data sharing."
+        },
+        answer: "B",
+        source: "Exam DB13 Cau 16"
+    },
+    {
+        id: 267,
+        category: "Exam DB13",
+        question: "A domain is atomic if elements of the domain are considered to be ____________ units.",
+        options: {
+            A: "Divisible",
+            C: "Indivisbile",
+            B: "Different",
+            D: "Constant"
+        },
+        answer: "C",
+        source: "Exam DB13 Cau 17"
+    },
+    {
+        id: 268,
+        category: "Exam DB13",
+        question: "An attribute in a relation is a foreign key if the _______ key from one relation is used as an attribute in that relation.",
+        options: {
+            A: "Sub",
+            C: "Candidate",
+            B: "Super",
+            D: "Primary"
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 18"
+    },
+    {
+        id: 269,
+        category: "Exam DB13",
+        question: "To define what columns should be displayed in an SQL SELECT statement:",
+        options: {
+            A: "use USING to name the source table(s) and list the columns to be shown after WHERE.",
+            C: "use FROM to name the source table(s) and list the columns to be shown after SELECT.",
+            B: "use USING to name the source table(s) and list the columns to be shown after SELECT.",
+            D: "use SELECT to name the source table(s) and list the columns to be shown after USING."
+        },
+        answer: "C",
+        source: "Exam DB13 Cau 19"
+    },
+    {
+        id: 270,
+        category: "Exam DB13",
+        question: "The following are components of a database except ________ .",
+        options: {
+            A: "reports",
+            C: "user data"
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 20"
+    },
+    {
+        id: 271,
+        category: "Exam DB13",
+        question: "What is not an advantage of stored procedures?",
+        options: {
+            A: "Increased network traffic",
+            C: "Greater security",
+            B: "SQL can be optimized",
+            D: "Code sharing"
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 21"
+    },
+    {
+        id: 272,
+        category: "Exam DB13",
+        question: "You can add a row using SQL in a database with which of the following?",
+        options: {
+            A: "CREATE",
+            B: "NEW",
+            C: "INSERT",
+            D: "MAKE"
+        },
+        answer: "C",
+        source: "Exam DB13 Cau 22"
+    },
+    {
+        id: 273,
+        category: "Exam DB13",
+        question: "If attributes A and B determine attribute C, then it is also true that:",
+        options: {
+            A: "B →",
+            C: "",
+            B: "C is a determinant.",
+            D: "(A,B) is a composite determinant."
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 23"
+    },
+    {
+        id: 274,
+        category: "Exam DB13",
+        question: "A recursive relationship is a relationship between an entity and ________ .",
+        options: {
+            A: "A subtype entity",
+            C: "An instance entity"
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 24"
+    },
+    {
+        id: 275,
+        category: "Exam DB13",
+        question: "The DROP TABLE statement:",
+        options: {
+            A: "Deletes the table structure along with the table data.",
+            C: "Is not an SQL statement."
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 25"
+    },
+    {
+        id: 276,
+        category: "Exam DB13",
+        question: "A subquery in an SQL SELECT statement:",
+        options: {
+            A: "Can always be duplicated by a join.",
+            C: "Cannot have its results sorted using ORDER BY.",
+            B: "Has a distinct form that cannot be duplicated by a join.",
+            D: "Can only be used with two tables."
+        },
+        answer: "C",
+        source: "Exam DB13 Cau 26"
+    },
+    {
+        id: 277,
+        category: "Exam DB13",
+        question: "SQL data definition commands make up a(n) ________ .",
+        options: {
+            A: "DDL",
+            C: "DML"
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 27"
+    },
+    {
+        id: 278,
+        category: "Exam DB13",
+        question: "A key:",
+        options: {
+            A: "Can only be one column.",
+            C: "Identifies a column"
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 28"
+    },
+    {
+        id: 279,
+        category: "Exam DB13",
+        question: "The wildcard in a WHERE clause is useful when?",
+        options: {
+            A: "An exact match is necessary in a CREATE statement.",
+            C: "An exact match is necessary in a SELECT statement."
+        },
+        answer: "B",
+        source: "Exam DB13 Cau 29"
+    },
+    {
+        id: 280,
+        category: "Exam DB13",
+        question: "How many JDBC driver types does Sun define?",
+        options: {
+            A: "Four",
+            C: "One"
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 30"
+    },
+    {
+        id: 281,
+        category: "Exam DB13",
+        question: "Row is synonymous with the term:",
+        options: {
+            A: "Record",
+            C: "Column"
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 31"
+    },
+    {
+        id: 282,
+        category: "Exam DB13",
+        question: "The primary key is selected from the:",
+        options: {
+            A: "Determinants",
+            C: "Composite keys"
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 32"
+    },
+    {
+        id: 283,
+        category: "Exam DB13",
+        question: "SQL is:",
+        options: {
+            A: "An operating system",
+            C: "A programming language",
+            B: "A DBMS",
+            D: "A data sublanguage"
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 33"
+    },
+    {
+        id: 284,
+        category: "Exam DB13",
+        question: "Metadata enables database designers and users to do all of the following except:",
+        options: {
+            A: "Understand what data exist",
+            C: "What the data mean",
+            B: "Sample data",
+            D: "What the fine distinctions are between similar data items."
+        },
+        answer: "B",
+        source: "Exam DB13 Cau 34"
+    },
+    {
+        id: 285,
+        category: "Exam DB13",
+        question: "Entities can be associated with one another in which of the following?",
+        options: {
+            A: "Attributes",
+            C: "Entities"
+        },
+        answer: "B",
+        source: "Exam DB13 Cau 35"
+    },
+    {
+        id: 286,
+        category: "Exam DB13",
+        question: "A relational database consists of a collection of",
+        options: {
+            A: "Tables",
+            C: "Fields",
+            B: "Records",
+            D: "Keys"
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 36"
+    },
+    {
+        id: 287,
+        category: "Exam DB13",
+        question: "What MySQL property is used to create a surrogate key in MySQL?",
+        options: {
+            A: "AUTO_INCREMENT",
+            C: "SEQUENCE",
+            B: "UNIQUE",
+            D: "INDEX"
+        },
+        answer: "A",
+        source: "Exam DB13 Cau 37"
+    },
+    {
+        id: 288,
+        category: "Exam DB13",
+        question: "Because it contains a description of its own structure, a database is considered to be ________ .",
+        options: {
+            A: "described",
+            C: "an application program",
+            B: "self-describing",
+            D: "metadata compatible"
+        },
+        answer: "B",
+        source: "Exam DB13 Cau 38"
+    },
+    {
+        id: 289,
+        category: "Exam DB13",
+        question: "SQL query and modification commands make up a(n) ________ .",
+        options: {
+            A: "DDL",
+            B: "XML",
+            C: "DML",
+            D: "HTML"
+        },
+        answer: "C",
+        source: "Exam DB13 Cau 39"
+    },
+    {
+        id: 290,
+        category: "Exam DB13",
+        question: "Which of the following is NOT a type of SQL constraint?",
+        options: {
+            A: "FOREIGN KEY",
+            C: "UNIQUE",
+            B: "PRIMARY KEY",
+            D: "ALTERNATE KEY"
+        },
+        answer: "D",
+        source: "Exam DB13 Cau 40"
+    }
+    ,
+    {
         id: 1,
         category: "Chapter 1: Introduction",
         question: "According to the slides, which of the following best describes a \"Database\"?",

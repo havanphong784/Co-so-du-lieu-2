@@ -1,0 +1,256 @@
+ĐẠI HỌC ĐÀ NẴNG
+KHOA CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG
+ĐỀ THI CUỐI KỲ I NĂM HỌC 2019-2020 HỌC PHẦN: CƠ SỞ DỮ LIỆU
+Thời gian làm bài: 60 phút
+Mã đề thi: DB12
+Giảng viên ra đề (Ký, ghi rõ họ tên)
+Kiểm tra của Khoa (Ký, ghi rõ họ tên)
+THÔNG TIN SINH VIÊN
+Họ tên:...........................................Mã số SV:........................................Lớp sinh hoạt:................
+Phần trả lời:
+1 B
+2 C
+3 C
+4 A
+5 C
+6 B
+7 D
+8 C
+9 A
+10 B
+11 B
+12 A
+13 C
+14 A
+15 C
+16 A
+17 C
+18 B
+19 A
+20 D
+21 A
+22 C
+23 D
+24 A
+25 A
+26 A
+27 A
+28 C
+29 C
+30 A
+31 A
+32 B
+33 A
+34 D
+35 A
+36
+B
+37
+C
+38
+A
+39
+C
+40
+C
+Phần câu hỏi
+Câu 1. Helping people keep track of things is the purpose of a(n) ________ .
+A. relationship
+C. instance
+B. database
+D. table
+Câu 2. Creating a read-only database is a task that is ________ assigned to beginning database professionals.
+A. Commonly
+C. Seldom
+Câu 3. A UNION query is which of the following?
+A. Combines the output from multiple queries and does not include the same number of columns.
+C. Combines the output from multiple queries and must include the same number of columns.
+B. Always
+D. Never
+B. Combines the output from no more than two queries and does not include the same number of columns.
+D. Combines the output from no more than two queries and must include the same number of columns.
+Câu 4. A domain is atomic if elements of the domain are considered to be ____________ units.
+A. Indivisbile
+C. Divisible
+B. Different
+D. Constant
+Câu 5. Which of the following are the five built-in functions provided by SQL?
+A. SUM, AVG, MIN, MAX, SUB
+C. COUNT, SUM, AVG, MAX, MIN
+Câu 6. Which of the following is valid SQL for an Index?
+A. CHANGE INDEX ID
+C. ADD INDEX ID
+B. SUM, AVG, MIN, MAX, NAME
+D. SUM, AVG, SUB, DIV, MIN
+B. CREATE INDEX ID
+D. REMOVE INDEX ID
+Câu 7. The result of a SQL SELECT statement is a(n) ________ .
+A. form
+C. report
+B. file
+D. table
+Câu 8. Which of the following is true concerning a procedure?
+A. You do not create them with SQL.
+C. They include procedural and SQL statements.
+B. They are the same thing as a function.
+D. They do not need to have a unique name.
+Câu 9. SQL data definition commands make up a(n) ________ .
+A. DDL
+C. HTML
+Câu 10. The SQL command to create a table is:
+A. NEW TABLE
+C. INSERT TABLE
+B. DML
+D. XML
+B. CREATE TABLE
+D. MAKE TABLE
+Câu 11. Which of the following is NOT a basic element of all versions of the E-R model?
+A. Entities
+C. Relationships
+Câu 12. A subquery in an SQL SELECT statement:
+A. Cannot have its results sorted using ORDER BY.
+C. Can only be used with two tables.
+B. Primary keys
+D. Attributes
+B. Can always be duplicated by a join.
+D. Has a distinct form that cannot be duplicated by a join.
+Câu 13. The SQL keyword(s) ________ is used with wildcards.
+A. IN and NOT IN
+C. LIKE
+B. NOT IN
+D. IN
+Câu 14. Which of the following types of databases are the most common?
+A. Enterprise
+C. Workgroup
+B. Personal
+D. Department
+Câu 15. Which one of the following is a set of one or more attributes taken collectively to uniquely identify a record?
+A. Candidate key
+C. Super key
+B. Sub key
+D. Foreign key
+Câu 16. Which one of the following is a procedural language?
+A. Relational algebra
+C. Domain relational calculus
+Câu 17. The primary key is selected from the:
+A. Composite keys
+C. Candidate keys
+B. Query language
+D. Tuple relational calculus
+B. Determinants
+D. Foreign keys
+Câu 18. An attribute that names or identifies entity instances is a(n):
+A. Attribute
+C. Relationship
+B. Identifier
+D. Entity
+Câu 19. The command to eliminate a table from a database is:
+A. DROP TABLE CUSTOMER;
+C. DELETE TABLE CUSTOMER;
+B. REMOVE TABLE CUSTOMER;
+D. UPDATE TABLE CUSTOMER;
+Câu 20. You can add a row using SQL in a database with which of the following?
+A. NEW	B. CREATE
+C. MAKE	D. INSERT
+Câu 21. A functional dependency is a relationship between or among:
+A. Attributes
+C. Rows
+Câu 22. A relational database consists of a collection of
+A. Fields
+C. Tables
+B. Tables
+D. Relations
+B. Records
+D. Keys
+Câu 23. ________ is an open source DBMS product that runs on UNIX, Linux and Windows.
+A. Sun ACCESS
+C. JDBC/SQL
+Câu 24. A key:
+A. Identifies a row.
+C. Identifies a column
+B. JSP/SQL
+D. MySQL
+B. Must always be composed of two or more columns.
+D. Can only be one column.
+Câu 25. Which of the following is a group of one or more attributes that uniquely identifies a row?
+A. Key
+C. Determinant
+B. Tuple
+D. Relation
+Câu 26. To remove duplicate rows from the results of an SQL SELECT statement, the ________ qualifier specified must be included.
+A. DISTINCT
+C. SINGLE
+B. UNIQUE
+D. ONLY
+Câu 27. If attributes A and B determine attribute C, then it is also true that:
+A. (A,B) is a composite determinant.
+C. A → C.
+B. C is a determinant.
+D. B → C.
+Câu 28. The HAVING clause does which of the following?
+A. Acts like a WHERE clause but is used for rows rather than columns.
+C. Acts like a WHERE clause but is used for groups rather than rows.
+Câu 29. What is not an advantage of stored procedures?
+A. SQL can be optimized
+C. Increased network traffic
+B. Acts like a WHERE clause but is used for columns rather than groups.
+D. Acts EXACTLY like a WHERE clause.
+B. Greater security
+D. Code sharing
+Câu 30. A CASE SQL statement is which of the following?
+A. A way to establish an IF-THEN-ELSE in SQL.
+C. A way to establish a data definition in SQL.
+Câu 31. An attribute is a(n):
+A. Column of a table.
+C. Row of a table
+B. A way to establish a loop in SQL.
+D. A way to establish an assignment in SQL
+B. Two dimensional table
+D. Column of a table
+Câu 32. The term attribute refers to a ___________ of a table.
+A. Tuple
+C. Key
+B. Column
+D. Record
+Câu 33. The Microsoft Access wildcards are ____ and ____ .
+A. question mark (?); asterisk (*)
+C. underscore(_); question mark (?)
+Câu 34. The term _______ is used to refer to a row.
+A. Field
+C. Instance
+Câu 35. SQL is:
+A. A data sublanguage
+C. A programming language
+B. asterisk (*); percent sign (%)
+D. percent sign (%); underscore (_)
+B. Attribute
+D. Tuple
+B. A DBMS
+D. An operating system
+Câu 36. Which of the following is true concerning triggers?
+A. You do not create them with SQL.
+C. They execute against only some applications that access a database.
+B. They have an event, condition, and action.
+D. They cannot cascade (cause another trigger to fire).
+Câu 37. What is an SQL virtual table that is constructed from other tables?
+A. Query results
+C. A view
+Câu 38. Which one of the following sorts rows in SQL?
+A. ORDER BY
+C. GROUP BY
+Câu 39. The SQL keyword BETWEEN is used:
+A. To limit the column displayed
+C. For ranges
+B. Another table
+D. A relation
+B. ALIGN BY
+D. SORT BY
+B. Sort the results
+D. As a wildcard
+Câu 40. Row is synonymous with the term:
+A. Field
+C. Record
+B. Column
+D. Relation
+……… HẾT ………
+(Ghi chú : Đề thi không cho phép mở tài liệu)
