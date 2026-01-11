@@ -82,16 +82,17 @@
             margin-top: 0.5rem;
         }
 
-        /* Layout Grid: [Category] [Quiz] [Vocab] */
+        /* Layout */
         .app-container {
             display: grid;
-            grid-template-columns: 280px 1fr 320px;
-            gap: 30px;
-            width: 95%;
-            max-width: 1500px;
-            padding: 20px;
-            padding-bottom: 80px;
-            min-height: calc(100vh - 180px);
+            grid-template-columns: 280px 1fr 280px; /* Fixed sidebars */
+            gap: 24px;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            min-height: calc(100vh - 200px);
+            padding-bottom: 60px;
             align-items: start;
         }
 
@@ -105,7 +106,9 @@
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            max-height: calc(100vh - 200px);
+            max-height: calc(100vh - 100px);
+            position: sticky;
+            top: 20px;
         }
 
         .panel-title {
@@ -344,54 +347,35 @@
         }
 
         /* Responsive */
-        @media (max-width: 1200px) {
+        @media (max-width: 1366px) {
             .app-container {
+                padding: 20px 40px;
                 grid-template-columns: 220px 1fr 280px;
                 gap: 20px;
             }
-
-            .card {
-                padding: 32px;
-            }
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1100px) {
             .app-container {
                 grid-template-columns: 200px 1fr;
-                gap: 16px;
             }
 
             .right-panel {
                 display: none;
             }
-
-            .card {
-                padding: 28px;
-                min-height: 250px;
-            }
-
-            .question-text {
-                font-size: 1.3rem;
-            }
         }
 
-        @media (max-width: 768px) {
-            header {
-                margin: 1rem 0;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
+        @media (max-width: 850px) {
             .app-container {
                 grid-template-columns: 1fr;
-                padding: 10px;
-                gap: 15px;
+                padding: 16px;
+                gap: 16px;
+                padding-bottom: 60px; /* Space for About footer */
             }
 
             .panel {
                 max-height: 250px;
+                width: 100%;
             }
 
             .quiz-section {
@@ -405,100 +389,52 @@
             .card {
                 padding: 24px;
                 min-height: 200px;
-                border-radius: 16px;
-            }
-
-            .question-text {
-                font-size: 1.15rem;
-                line-height: 1.5;
-            }
-
-            .answer-text {
-                font-size: 1.1rem;
-            }
-
-            .controls {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            button {
-                padding: 10px 16px;
-                font-size: 0.9rem;
-                flex: 1;
-                justify-content: center;
-                min-width: 100px;
-            }
-
-            .shortcuts-hint {
-                display: none;
-            }
-
-            .jump-to {
-                bottom: 10px;
-                right: 10px;
-                padding: 8px;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
 
             .subtitle {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .app-container {
-                padding: 8px;
+                padding: 12px;
                 gap: 12px;
             }
 
             .panel {
                 padding: 16px;
-                border-radius: 14px;
-                max-height: 200px;
-            }
-
-            .panel-title {
-                font-size: 1rem;
-                margin-bottom: 10px;
-                padding-bottom: 8px;
-            }
-
-            .cate-item {
-                padding: 10px;
-                font-size: 0.9rem;
+                border-radius: 16px;
             }
 
             .card {
                 padding: 20px;
-                min-height: 180px;
-                border-radius: 14px;
-            }
-
-            .question-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
+                border-radius: 16px;
             }
 
             .question-text {
-                font-size: 1.05rem;
-            }
-
-            .answer-text {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .controls {
                 margin-top: 1rem;
+                flex-direction: column;
+                gap: 12px;
             }
 
             button {
-                padding: 10px 12px;
-                font-size: 0.85rem;
+                padding: 12px;
+                font-size: 0.9rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .answer-container {
+                margin-top: 1.5rem;
             }
         }
     </style>
